@@ -6,6 +6,7 @@ function AddPlacePopup(props) {
     <PopupWithForm
       name="add"
       title="Новое место"
+      buttonText="Создать"
       isOpen={props.isOpen}
       onClose={props.onClose}
     >
@@ -35,9 +36,6 @@ function AddPlacePopup(props) {
         />
         <span className="popup__input-error card-link-input-error"></span>
       </label>
-      <button className="popup__button" type="submit">
-        Создать
-      </button>
     </PopupWithForm>
   );
 }

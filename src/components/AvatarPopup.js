@@ -6,6 +6,7 @@ function AvatarPopup(props) {
     <PopupWithForm
       name="avatar"
       title="Обновить аватар"
+      buttonText="Сохранить"
       isOpen={props.isOpen}
       onClose={props.onClose}
     >
@@ -22,9 +23,6 @@ function AvatarPopup(props) {
         />
         <span className="popup__input-error avatar-input-error"></span>
       </label>
-      <button className="popup__button" type="submit">
-        Сохранить
-      </button>
     </PopupWithForm>
   );
 }

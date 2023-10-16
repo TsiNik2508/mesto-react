@@ -6,6 +6,7 @@ function ProfilePopup(props) {
     <PopupWithForm
       name="edit"
       title="Редактировать профиль"
+      buttonText="Сохранить"
       isOpen={props.isOpen}
       onClose={props.onClose}
     >
@@ -37,9 +38,6 @@ function ProfilePopup(props) {
         />
         <span className="popup__input-error bio-input-error"></span>
       </label>
-      <button className="popup__button" type="submit">
-        Сохранить
-      </button>
     </PopupWithForm>
   );
 }
