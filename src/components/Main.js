@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import ProfilePopup from './ProfilePopup';
-import AddPlacePopup from './AddPlacePopup';
-import AvatarPopup from './AvatarPopup';
 import Card from './Card';
-import ImagePopup from './ImagePopup';
 import { api } from '../utils/Api';
 
 function Main({
@@ -12,11 +8,6 @@ function Main({
   onEditAvatarClick,
   onCardClick,
   onClose,
-  selectedCard,
-  isEditProfilePopupOpen,
-  isAddPlacePopupOpen,
-  isEditAvatarPopupOpen,
-  isImagePopupOpen,
 }) {
   const [userName, setUserName] = useState('');
   const [userDescription, setUserDescription] = useState('');
@@ -87,27 +78,6 @@ function Main({
           />
         ))}
       </section>
-
-      <ProfilePopup
-        isOpen={isEditProfilePopupOpen}
-        onClose={onClose}
-        userName={userName}
-        userDescription={userDescription}
-      />
-      <AddPlacePopup
-        isOpen={isAddPlacePopupOpen}
-        onClose={onClose}
-      />
-      <ImagePopup
-        card={selectedCard}
-        isOpen={isImagePopupOpen}
-        onClose={onClose}
-      />
-      <AvatarPopup
-        isOpen={isEditAvatarPopupOpen}
-        onClose={onClose}
-
-      />
     </main>
   );
 }

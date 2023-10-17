@@ -2,6 +2,11 @@ import React, { useState } from 'react';
 import Header from './Header';
 import Main from './Main';
 import Footer from './Footer';
+import PopupWithForm from './PopupWithForm';
+import ImagePopup from './ImagePopup';
+import AvatarPopup from './AvatarPopup'; 
+import ProfilePopup from './ProfilePopup'; 
+import AddPlacePopup from './AddPlacePopup'; 
 
 function App() {
   const [selectedCard, setSelectedCard] = useState({ name: '', link: '' });
@@ -19,7 +24,6 @@ function App() {
   };
 
   const handleEditAvatarClick = () => {
-   
     setIsEditAvatarPopupOpen(true);
   };
 
@@ -44,7 +48,6 @@ function App() {
         onAddPlaceClick={handleAddPlaceClick}
         onEditAvatarClick={handleEditAvatarClick}
         onCardClick={handleCardClick}
-        onClose={closeAllPopups}
         selectedCard={selectedCard}
         isEditProfilePopupOpen={isEditProfilePopupOpen}
         isAddPlacePopupOpen={isAddPlacePopupOpen}
@@ -52,6 +55,23 @@ function App() {
         isImagePopupOpen={isImagePopupOpen}
       />
       <Footer />
+      <ImagePopup
+        card={selectedCard}
+        isOpen={isImagePopupOpen}
+        onClose={closeAllPopups}
+      />
+      <AvatarPopup
+        isOpen={isEditAvatarPopupOpen}
+        onClose={closeAllPopups}
+      />
+      <ProfilePopup
+        isOpen={isEditProfilePopupOpen}
+        onClose={closeAllPopups}
+      />
+      <AddPlacePopup
+        isOpen={isAddPlacePopupOpen}
+        onClose={closeAllPopups}
+      />
     </div>
   );
 }
