@@ -1,28 +1,62 @@
-import React from 'react';
-import PopupWithForm from './PopupWithForm';
+import { useEffect } from "react";
+import PopupWithForm from "./PopupWithForm.js";
+import useFormValidation from "./FormValidation.js";
 
-function AvatarPopup(props) {
+// Компонент AvatarPopup, отвечающий за форму обновления аватара пользователя
+function AvatarPopup({
+  isOpen, 
+  onClose, 
+  onOverlayClick, 
+  onUpdateAvatar,
+  onLoading,
+}) {
+  // Используем хук useFormValidation для управления состоянием формы и валидации
+  const { values, errors, isValid, handleChange, setValue, reset, formRef } =
+    useFormValidation();
+
+  // Используем хук useEffect для сброса значения поля аватара при открытии попапа
+  useEffect(() => {
+    setValue("avatar", "");
+  }, [isOpen, setValue]);
+
+  // Функция дляотправки формы
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (isValid) {
+      onUpdateAvatar({ avatar: values.avatar });
+    }
+  }
+
+  // Функция для закрытия попапа и сброса формы
+  const onClosePopup = () => {
+    onClose();
+    reset();
+  };
+
   return (
+    // Рендеринг компонента PopupWithForm с формой обновления аватара
     <PopupWithForm
-      name="avatar"
       title="Обновить аватар"
-      buttonText="Сохранить"
-      isOpen={props.isOpen}
-      onClose={props.onClose}
+      name="avatar"
+      isOpen={isOpen}
+      onClose={onClosePopup}
+      onOverlayClick={onOverlayClick}
+      onSubmit={handleSubmit}
+      onLoading={onLoading}
+      isValid={isValid}
+      ref={formRef}
     >
-      <label className="popup__inputs">
-        <input
-          className="popup__input popup__input_type_avatar"
-          type="url"
-          name="avatar"
-          placeholder="Ссылка на аватар"
-          required
-          minLength="2"
-          value={props.avatar}
-          onChange={props.onAvatarChange}
-        />
-        <span className="popup__input-error avatar-input-error"></span>
-      </label>
+      <input
+        name="avatar"
+        value={values["avatar"] ?? ""}
+        type="url"
+        onChange={handleChange}
+        placeholder="Ссылка на картинку"
+        id="image-link"
+        className="popup__input popup__input_type_avatar"
+        required
+      />
+      <span className="popup__input-error">{errors["avatar"]}</span>
     </PopupWithForm>
   );
 }

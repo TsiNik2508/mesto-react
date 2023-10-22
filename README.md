@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Проект Mesto (React)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ Mesto-react - это интерактивное веб-приложение для обмена фотографиями. Этот проект разработан с использованием библиотеки React и включает в себя реализацию функций добавления новых фотографий, редактирования профиля пользователя, лайков и удаления фотографий.
 
-## Available Scripts
+## Описание
 
-In the project directory, you can run:
+Основные функции включают в себя:
 
-### `npm start`
+- Добавление новых фотографий с названием и ссылкой на изображение.
+- Редактирование профиля пользователя с изменением имени, описания и аватара.
+- Постановку лайков и их отображение на фотографиях.
+- Удаление своих фотографий.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Запуск проекта на локальном сервере
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Для запуска проекта на локальном сервере вам потребуется Node.js и npm (пакетный менеджер JavaScript).
 
-### `npm test`
+1. **Клонирование репозитория:** Сначала склонируйте репозиторий на свой компьютер:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```bash
+   git clone https://github.com/TsiNik2508/mesto-react.git
 
-### `npm run build`
+2. **Установка зависимостей:** Перейдите в директорию проекта и выполните команду для установки зависимостей:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    ```bash
+    cd mesto
+    npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Запуск приложения:**
+- Для запуска приложения в режиме разработки используйте команду:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```bash
+   npm run dev
+   
+- Для запуска приложения в режиме production (без автоматической перезагрузки) используйте команду:
 
-### `npm run eject`
+   ```bash
+   npm start
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Проект будет доступен в вашем веб-браузере по адресу `http://localhost:3000`. 
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Технологии
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Проект Mesto (React) использует следующие технологии:
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- HTML, CSS
+- JavaScript
+- React
+- Create React App
+- REST API
+- Git (для управления версиями)

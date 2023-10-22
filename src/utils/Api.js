@@ -8,6 +8,7 @@ class Api {
     if (res.ok) {
       return res.json();
     }
+
     return Promise.reject(`Ошибка ${res.status}`);
   }
 
@@ -17,21 +18,21 @@ class Api {
 
   getUserInfo() {
     return this._request(`${this._baseUrl}/users/me`, {
-      method: 'GET',
+      method: "GET",
       headers: this._headers,
     });
   }
 
   getInitialCards() {
     return this._request(`${this._baseUrl}/cards`, {
-      method: 'GET',
+      method: "GET",
       headers: this._headers,
     });
   }
 
   editUserInfo(data) {
     return this._request(`${this._baseUrl}/users/me`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         name: data.name,
@@ -42,7 +43,7 @@ class Api {
 
   addCard(card) {
     return this._request(`${this._baseUrl}/cards`, {
-      method: 'POST',
+      method: "POST",
       headers: this._headers,
       body: JSON.stringify({
         name: card.name,
@@ -53,14 +54,14 @@ class Api {
 
   deleteCard(id) {
     return this._request(`${this._baseUrl}/cards/${id}`, {
-      method: 'DELETE',
+      method: "DELETE",
       headers: this._headers,
     });
   }
 
   updateAvatar(data) {
     return this._request(`${this._baseUrl}/users/me/avatar`, {
-      method: 'PATCH',
+      method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         avatar: data.avatar,
@@ -70,14 +71,21 @@ class Api {
 
   putLike(id) {
     return this._request(`${this._baseUrl}/cards/${id}/likes`, {
-      method: 'PUT',
+      method: "PUT",
       headers: this._headers,
     });
   }
 
   deleteLike(id) {
     return this._request(`${this._baseUrl}/cards/${id}/likes`, {
-      method: 'DELETE',
+      method: "DELETE",
+      headers: this._headers,
+    });
+  }
+
+  updateLikeCard(id, isLiked) {
+    return this._request(`${this._baseUrl}/cards/${id}/likes`, {
+      method: isLiked ? "DELETE" : "PUT",
       headers: this._headers,
     });
   }
@@ -92,4 +100,4 @@ const apiConfig = {
 };
 
 const api = new Api(apiConfig);
-export {api} ;
+export { api };
